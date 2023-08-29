@@ -1,3 +1,4 @@
+// Larissa Fernanda dos Santos
 
 #include <iostream>
 using namespace std;
@@ -120,9 +121,25 @@ void inserirElemento()
 
 }
 
-void excluirElemento()
-{
+	void excluirElemento() {
+		int procurar;
 
+		cout << "Digite o valor no qual voce deseja excluir: ";
+		cin >> procurar;
+
+		int pos = posicaoElemento(procurar);
+
+		while (pos == -1) {
+			cout << "Este elemento não exite, digite outro: ";
+			cin >> procurar;
+			pos = posicaoElemento(procurar);
+		}
+
+		for (int i = pos; i < nElementos; i++) {
+			lista[i] = lista[i + 1]; // excluindo elemento
+		}
+		nElementos = nElementos--;
+	}
 
 }
 
